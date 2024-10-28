@@ -200,7 +200,20 @@ extern "C" void app_main(void)
     ......*.
     .......*
 ```
+### ตอบ 
+```
+import time
 
+def single_runner():
+    pattern_length = 8
+    for i in range(pattern_length):
+        lights = ['.'] * pattern_length
+        lights[i] = '*'
+        print(''.join(lights))
+        time.sleep(0.5)
+
+single_runner()
+```
 2. ไฟวิ่งสองดวงสวนกันตรงกลาง 
 ```
     *......*
@@ -212,7 +225,29 @@ extern "C" void app_main(void)
     .*....*.
     *......*
 ```
+### ตอบ
+```
+import time
 
+def double_runner():
+    pattern_length = 8
+    half_length = pattern_length // 2
+    for i in range(half_length + 1):
+        lights = ['.'] * pattern_length
+        lights[i] = '*'
+        lights[pattern_length - 1 - i] = '*'
+        print(''.join(lights))
+        time.sleep(0.5)
+
+    for i in range(half_length - 1, -1, -1):
+        lights = ['.'] * pattern_length
+        lights[i] = '*'
+        lights[pattern_length - 1 - i] = '*'
+        print(''.join(lights))
+        time.sleep(0.5)
+
+double_runner()
+```
 3. ไฟวิ่งไปกลับ 
 ```
     *.......
@@ -231,3 +266,24 @@ extern "C" void app_main(void)
     .*......
     *.......
 ```
+### ตอบ
+```
+import time
+
+def runner_back_and_forth():
+    pattern_length = 8
+    for i in range(pattern_length):
+        lights = ['.'] * pattern_length
+        lights[i] = '*'
+        print(''.join(lights))
+        time.sleep(0.5)
+    for i in range(pattern_length - 2, -1, -1):
+        lights = ['.'] * pattern_length
+        lights[i] = '*'
+        print(''.join(lights))
+        time.sleep(0.5)
+
+runner_back_and_forth()
+```
+## คลิปแสดงการทำงานข้อ Challenge
+https://drive.google.com/drive/folders/1-F9y_p-X_iUl-a7QJGoSK7FxJHgFp1sH
